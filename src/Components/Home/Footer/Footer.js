@@ -16,16 +16,16 @@ const Footer = () => {
                     </div>
                     <div className="col-md-7 pl-5">
                         <form onSubmit={handleSubmit}>
-                            <div class="form-group">
-                                <input type="email" class="form-control" id="email" placeholder="Your Enter email" />
+                            <div className="form-group">
+                                <input type="email" className="form-control" id="email" placeholder="Your Enter email" />
                             </div>
-                            <div class="form-group">
-                                <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Your name/company's name" />
+                            <div className="form-group">
+                                <input type="password" className="form-control" id="exampleInputPassword1" placeholder="Your name/company's name" />
                             </div>
-                            <div class="form-group">
-                                <textarea class="form-control" id="exampleFormControlTextarea1" rows="6" placeholder="Your message"></textarea>
+                            <div className="form-group">
+                                <textarea className="form-control" id="exampleFormControlTextarea1" rows="6" placeholder="Your message"></textarea>
                             </div>
-                            <button type="submit" style={{ width: '120px' }} class="btn btn-dark">send</button>
+                            <button type="submit" style={{ width: '120px' }} className="btn btn-dark">send</button>
                         </form>
                     </div>
                 </div>
