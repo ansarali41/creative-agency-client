@@ -26,8 +26,9 @@ const Order = () => {
                             <input type="text" className="form-control" placeholder="Project title" name="title" ref={register({ required: true })} />
                             {errors.title && <span className="text-danger">Project title is required</span>} <br />
 
-                            <textarea className="form-control" placeholder="Project details" name="description" id="description" rows="3" />
+                            <textarea className="form-control" placeholder="Project details" name="description" id="description" rows="3" ref={register({ required: true })}/>
                             {errors.description && <span className="text-danger">Project description is required</span>} <br />
+
                             <div className="row">
                                 <div className="col-md-6">
                                     <input type="text" className="form-control" placeholder="Price" name="price" ref={register({ required: true })} />
@@ -39,7 +40,7 @@ const Order = () => {
                                     <br />
                                 </div>
                             </div>
-                            <input type="submit" />
+                            <button type="submit" style={{width:'120px'}} className="btn btn-dark">send</button>
                         </form>
                     </div>
                 </div>
