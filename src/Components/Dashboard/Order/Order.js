@@ -36,7 +36,7 @@ const Order = () => {
                                 </div>
                                 <div className="col-md-6 custom-file">
                                     <input type="file" className="custom-file-input" placeholder="upload project file" name="file" id="file" />
-                                    <label className="custom-file-label" htmlFor="file">Choose file</label>
+                                    <label className="custom-file-label" htmlFor="file">upload project file</label>
                                     <br />
                                 </div>
                             </div>

@@ -7,7 +7,7 @@ import './Sidebar.css'
 const Sidebar = () => {
 
     return (
-        <div className="sidebar d-flex flex-column justify-content-between py-5" style={{ height: "100vh" }}>
+        <div className="sidebar d-flex flex-column justify-content-between py-4" style={{ height: "100vh" }}>
             <ul className="list-unstyled">
                 <li>
                     <Link to="/order" className="text-dark">
