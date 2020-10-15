@@ -1,7 +1,6 @@
 import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import { UserContext } from '../../../App';
-import logo from '../../../images/logos/logo.png'
 import { logOutHandler } from '../../Login/LoginManager';
 
 const Navbar = () => {
@@ -15,7 +14,7 @@ const Navbar = () => {
     }
     return (
         <nav className="navbar navbar-expand-lg navbar-light container">
-            <Link className="navbar-brand" to="/"><img className="w-25" src={logo} alt="" /></Link>
+            <Link className="navbar-brand" to="/"><img className="w-25" src="https://i.ibb.co/kXDXMmN/logo.png" alt="" /></Link>
             <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span className="navbar-toggler-icon"></span>
             </button>

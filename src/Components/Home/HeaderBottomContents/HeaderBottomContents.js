@@ -1,27 +1,22 @@
 import React from 'react';
-import slack from '../../../images/logos/slack.png'
-import google from '../../../images/logos/google.png'
-import uber from '../../../images/logos/uber.png'
-import netflix from '../../../images/logos/netflix.png'
-import airbnb from '../../../images/logos/airbnb.png'
 
 const HeaderBottomContents = () => {
     return (
         <section className="d-flex container text-center mb-5 pb-5">
             <div>
-                <img className="w-50 " src={slack} alt=""/>
+                <img className="w-50 " src="https://i.ibb.co/dBNX18Z/slack.png" alt=""/>
             </div>
             <div>
-                <img className="w-50 " src={google} alt="" />
+                <img className="w-50 " src="https://i.ibb.co/7r656cB/google.png" alt="" />
             </div>
             <div>
-                <img className="w-50 " src={uber} alt="" />
+                <img className="w-50 " src="https://i.ibb.co/FH2RPfk/uber.png" alt="" />
             </div>
             <div>
-                <img className="w-50 " src={netflix} alt="" />
+                <img className="w-50 " src="https://i.ibb.co/R6N72zj/netflix.png" alt="" />
             </div>
             <div>
-                <img className="w-50 " src={airbnb} alt="" />
+                <img className="w-50 " src="https://i.ibb.co/NY1m026/airbnb.png" alt="" />
             </div>
         </section>
     );

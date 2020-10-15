@@ -1,6 +1,5 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import Frame from '../../../images/logos/Frame.png'
 
 const HeaderMain = () => {
     return (
@@ -11,7 +10,7 @@ const HeaderMain = () => {
                 <Link to="/order"><button className="btn btn-dark p-2 w-50">Hire us</button></Link>
             </div>
             <div className="col-md-6">
-                <img src={Frame} alt="" className="img-fluid" />
+                <img src="https://i.ibb.co/dkwfYrs/Frame.png" alt="" className="img-fluid" />
             </div>
         </main>
     );
