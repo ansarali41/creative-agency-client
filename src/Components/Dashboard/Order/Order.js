@@ -1,11 +1,38 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useForm } from "react-hook-form";
 import DashboardHeader from '../DashboardHeader/DashboardHeader';
 import Sidebar from '../Sidebar/Sidebar';
 
 const Order = () => {
+    const [file, setFile] = useState(null);
+    const handleFileChange = (e) => {
+        const newFile = e.target.files[0];
+        setFile(newFile);
+    }
     const { register, handleSubmit, errors } = useForm();
-    const onSubmit = data => console.log(data);
+    const onSubmit = data => {
+        const formData = new FormData()
+        formData.append('file', file)
+        formData.append('name', data.name)
+        formData.append('email', data.email)
+        formData.append('title', data.title)
+        formData.append('description', data.description)
+        formData.append('price', data.price)
+
+        fetch('http://localhost:5000/addOrder', {
+            method: 'POST',
+            body: formData
+        })
+            .then(response => response.json())
+            .then(result => {
+                if(result){
+                    alert('Order Placed successfully !')
+                }
+            })
+            .catch(error => {
+                console.error(error)
+            })
+    }
 
     return (
         <section className="container">
@@ -26,7 +53,7 @@ const Order = () => {
                             <input type="text" className="form-control" placeholder="Project title" name="title" ref={register({ required: true })} />
                             {errors.title && <span className="text-danger">Project title is required</span>} <br />
 
-                            <textarea className="form-control" placeholder="Project details" name="description" id="description" rows="3" ref={register({ required: true })}/>
+                            <textarea className="form-control" placeholder="Project details" name="description" id="description" rows="3" ref={register({ required: true })} />
                             {errors.description && <span className="text-danger">Project description is required</span>} <br />
 
                             <div className="row">
@@ -35,12 +62,13 @@ const Order = () => {
                                     {errors.email && <span className="text-danger">price is required</span>} <br />
                                 </div>
                                 <div className="col-md-6 custom-file">
-                                    <input type="file" className="custom-file-input" placeholder="upload project file" name="file" id="file" />
                                     <label className="custom-file-label" htmlFor="file">upload project file</label>
+                                    <input type="file" onChange={handleFileChange} className="custom-file-input" placeholder="upload project file" name="file" id="file" />
+                                    
                                     <br />
                                 </div>
                             </div>
-                            <button type="submit" style={{width:'120px'}} className="btn btn-dark">send</button>
+                            <button type="submit" style={{ width: '120px' }} className="btn btn-dark">send</button>
                         </form>
                     </div>
                 </div>

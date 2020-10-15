@@ -20,7 +20,8 @@ function App() {
   const [user, setUser] = useState({
     displayName: '',
     email: '',
-    isLoggedIn: false
+    isLoggedIn: false,
+    photo: '',
   })
 
   return (
