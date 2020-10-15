@@ -25,13 +25,13 @@ const Navbar = () => {
                         <Link className="nav-link mr-5" to="/">Home <span className="sr-only">(current)</span></Link>
                     </li>
                     <li className="nav-item">
-                        <a className="nav-link mr-5" href="/progress">Our Portfolio</a>
+                        <Link className="nav-link mr-5" to="/progress">Our Portfolio</Link>
                     </li>
                     <li className="nav-item">
-                        <a className="nav-link mr-5" href="/progress">Our Team</a>
+                        <Link className="nav-link mr-5" to="/progress">Our Team</Link>
                     </li>
                     <li className="nav-item">
-                        <a className="nav-link mr-5" href="/progress">Contact Us</a>
+                        <Link className="nav-link mr-5" to="/progress">Contact Us</Link>
                     </li>
                     <li className="nav-item">
                         {isLoggedIn ? <Link to="/"><button type="button" className="btn btn-dark" onClick={userLogOut}>LogOut</button></Link> :
