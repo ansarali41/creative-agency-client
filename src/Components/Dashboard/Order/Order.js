@@ -1,9 +1,11 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import { useForm } from "react-hook-form";
+import { UserContext } from '../../../App';
 import DashboardHeader from '../DashboardHeader/DashboardHeader';
 import Sidebar from '../Sidebar/Sidebar';
 
 const Order = () => {
+    const [user, setUser] = useContext(UserContext);
     const [file, setFile] = useState(null);
     const handleFileChange = (e) => {
         const newFile = e.target.files[0];
@@ -44,10 +46,10 @@ const Order = () => {
                 <div className="col-md-10 p-4  dashboard-bg">
                     <div className="col-md-6">
                         <form onSubmit={handleSubmit(onSubmit)}>
-                            <input type="text" className="form-control" placeholder="Your name/company's name" name="name" ref={register({ required: true })} />
+                            <input type="text" className="form-control" placeholder="Your name/company's name" defaultValue={user.displayName} name="name" ref={register({ required: true })} />
                             {errors.name && <span className="text-danger">Name is required</span>} <br />
 
-                            <input type="text" className="form-control" placeholder="Your email address" name="email" ref={register({ required: true })} />
+                            <input type="text" className="form-control" placeholder="Your email address" name="email" defaultValue={user.email} ref={register({ required: true })} />
                             {errors.email && <span className="text-danger">Email address is required</span>} <br />
 
                             <input type="text" className="form-control" placeholder="Project title" name="title" ref={register({ required: true })} />
