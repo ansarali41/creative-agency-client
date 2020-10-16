@@ -1,7 +1,7 @@
 import React from 'react';
 import DashboardHeader from '../../Dashboard/DashboardHeader/DashboardHeader';
-import Sidebar from '../../Dashboard/Sidebar/Sidebar';
 import { useForm } from "react-hook-form";
+import AdminSidebar from '../AdminSidebar/AdminSidebar';
 
 const MakeAdmin = () => {
     const { register, handleSubmit, errors } = useForm();
@@ -23,7 +23,7 @@ const MakeAdmin = () => {
             <DashboardHeader></DashboardHeader>
             <div className="row">
                 <div className="col-md-2">
-                    <Sidebar></Sidebar>
+                    <AdminSidebar></AdminSidebar>
                 </div>
                 <div className="col-md-10 p-5  dashboard-bg">
                     <div className="col-md-9">

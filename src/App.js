@@ -16,14 +16,15 @@ import PrivateRoute from './Components/PrivateRoute/PrivateRoute';
 import ServiceListAdmin from './Components/Admin/ServiceListAdmin/ServiceListAdmin';
 import AddService from './Components/Admin/AddService/AddService';
 import MakeAdmin from './Components/Admin/MakeAdmin/MakeAdmin';
+import Dashboard from './Components/Dashboard/Dashboard/Dashboard';
+
 
 export const UserContext = createContext();
 
 function App() {
   const [user, setUser] = useState({
-    displayName: 'Ansar Ali',
-    email: 'ansar.ict14@gmail.com',
-    isLoggedIn: false,
+    displayName: '',
+    email: '',
     photo: ''
   })
 
@@ -31,6 +32,10 @@ function App() {
     <UserContext.Provider className="container" value={[user, setUser]}>
       <Router>
         <Switch>
+          <PrivateRoute path="/dashboard">
+            <Dashboard/>
+          </PrivateRoute>
+
           <PrivateRoute path="/order">
             <Order></Order>
           </PrivateRoute>

@@ -4,7 +4,7 @@ import { UserContext } from '../../../App';
 import DashboardHeader from '../DashboardHeader/DashboardHeader';
 import Sidebar from '../Sidebar/Sidebar';
 
-const Order = () => {
+const Order = ({ dashboard }) => {
     const [user, setUser] = useContext(UserContext);
     const [file, setFile] = useState(null);
     const handleFileChange = (e) => {
@@ -13,6 +13,7 @@ const Order = () => {
     }
     const { register, handleSubmit, errors } = useForm();
     const onSubmit = data => {
+        const status = "pending";
         const formData = new FormData()
         formData.append('file', file)
         formData.append('name', data.name)
@@ -20,6 +21,7 @@ const Order = () => {
         formData.append('title', data.title)
         formData.append('description', data.description)
         formData.append('price', data.price)
+        formData.append('status', status)
 
         fetch('http://localhost:5000/addOrder', {
             method: 'POST',
@@ -27,7 +29,7 @@ const Order = () => {
         })
             .then(response => response.json())
             .then(result => {
-                if(result){
+                if (result) {
                     alert('Order Placed successfully !')
                 }
             })
@@ -36,15 +38,30 @@ const Order = () => {
             })
     }
 
+    let container='container'
+    let col='col-md-6';
+    let p ='p-4';
+    if(dashboard){
+        container = '';
+         col= 'col-md-7';
+         p=''
+    }
+
     return (
-        <section className="container">
-            <DashboardHeader></DashboardHeader>
+        <section className={`${container}`}>
+            {
+                dashboard ? <div></div> : <DashboardHeader></DashboardHeader>
+            }
             <div className="row">
-                <div className="col-md-2">
-                    <Sidebar></Sidebar>
-                </div>
-                <div className="col-md-10 p-4  dashboard-bg">
-                    <div className="col-md-6">
+                {
+                    dashboard ? <div></div> : 
+                    <div className="col-md-2">
+                        <Sidebar></Sidebar>
+                    </div>
+                }
+                
+                <div className={`col-md-10 ${p} dashboard-bg`}>
+                    <div className={`${col}`}>
                         <form onSubmit={handleSubmit(onSubmit)}>
                             <input type="text" className="form-control" placeholder="Your name/company's name" defaultValue={user.displayName} name="name" ref={register({ required: true })} />
                             {errors.name && <span className="text-danger">Name is required</span>} <br />
@@ -66,7 +83,7 @@ const Order = () => {
                                 <div className="col-md-6 custom-file">
                                     <label className="custom-file-label" htmlFor="file">upload project file</label>
                                     <input type="file" onChange={handleFileChange} className="custom-file-input" placeholder="upload project file" name="file" id="file" />
-                                    
+
                                     <br />
                                 </div>
                             </div>

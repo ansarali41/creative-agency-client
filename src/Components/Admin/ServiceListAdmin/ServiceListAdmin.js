@@ -1,28 +1,57 @@
 import React, { useEffect, useState } from 'react';
 import DashboardHeader from '../../Dashboard/DashboardHeader/DashboardHeader';
-import Sidebar from '../../Dashboard/Sidebar/Sidebar';
+import AdminSidebar from '../AdminSidebar/AdminSidebar';
+import AllServiceListDetails from '../AllServiceListDetails/AllServiceListDetails';
 
-const ServiceListAdmin = () => {
+const ServiceListAdmin = ({ dashboard }) => {
     const [allServiceList, setAllServiceList] = useState([])
     useEffect(() => {
         fetch('http://localhost:5000/allService')
-        .then(response => response.json())
-        .then(data =>{
-            console.log(data);
-            setAllServiceList(data);
-        })
-    },[])
+            .then(response => response.json())
+            .then(data => {
+                console.log(data);
+                setAllServiceList(data);
+            })
+    }, [])
+
+    let container = 'container'
+    let p = 'p-4';
+    if (dashboard) {
+        container = '';
+        p = ''
+    }
+
     return (
-        <section className="container">
-            <DashboardHeader></DashboardHeader>
+        <section className={`${container}`}>
+            {
+                dashboard ? <div></div> : <DashboardHeader></DashboardHeader>
+            }
             <div className="row">
-                <div className="col-md-2">
-                    <Sidebar></Sidebar>
-                </div>
-                <div className="col-md-10 p-4  dashboard-bg">
-                    <div className="col-md-6">
-                        <h4>all Service List ... admin</h4>
-                    </div>
+                {
+                    dashboard ? <div></div>
+                        :
+                        <div className="col-md-2">
+                            <AdminSidebar></AdminSidebar>
+                        </div>
+                }
+                <div className={`col-md-10 ${p} dashboard-bg`}>
+                    <table className="table">
+                        <thead>
+                            <tr>
+                                <th scope="col">Name</th>
+                                <th scope="col">Email ID</th>
+                                <th scope="col">Service</th>
+                                <th scope="col">Project Details</th>
+                                <th scope="col">Status</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {
+                                allServiceList.map((serviceList) => <AllServiceListDetails serviceList={serviceList} key={serviceList._id}></AllServiceListDetails>)
+                            }
+                        </tbody>
+                    </table>
+
                 </div>
             </div>
         </section>

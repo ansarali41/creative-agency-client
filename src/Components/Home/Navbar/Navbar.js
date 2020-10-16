@@ -5,7 +5,7 @@ import { logOutHandler } from '../../Login/LoginManager';
 
 const Navbar = () => {
     const [user, setUser] = useContext(UserContext);
-    const { isLoggedIn } = user;
+    const { email } = user;
     const userLogOut = () => {
         logOutHandler()
             .then(res => {
@@ -34,7 +34,7 @@ const Navbar = () => {
                         <Link className="nav-link mr-5" to="/progress">Contact Us</Link>
                     </li>
                     <li className="nav-item">
-                        {isLoggedIn ? <Link to="/"><button type="button" className="btn btn-dark" onClick={userLogOut}>LogOut</button></Link> :
+                        {email ? <Link to="/"><button type="button" className="btn btn-dark" onClick={userLogOut}>LogOut</button></Link> :
                             <Link to="/login"><button type="button" className="btn btn-dark">Login</button></Link>
                         }
                     </li>

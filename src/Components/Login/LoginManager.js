@@ -14,7 +14,6 @@ export const logOutHandler = () => {
         const loggedOutUser = {
             displayName: '',
             email: '',
-            isLoggedIn: false
         }
         return loggedOutUser;
 
@@ -33,7 +32,6 @@ export const handleGoogleSignIn = () => {
             const signedInUser = {
                 displayName: displayName,
                 email: email,
-                isLoggedIn: true,
                 photo: photoURL
             }
             return signedInUser;
