@@ -13,6 +13,9 @@ import PageNotFound from './Components/PageNotFound/PageNotFound';
 import Progress from './Components/Progress/Progress';
 import Login from './Components/Login/Login';
 import PrivateRoute from './Components/PrivateRoute/PrivateRoute';
+import ServiceListAdmin from './Components/Admin/ServiceListAdmin/ServiceListAdmin';
+import AddService from './Components/Admin/AddService/AddService';
+import MakeAdmin from './Components/Admin/MakeAdmin/MakeAdmin';
 
 export const UserContext = createContext();
 
@@ -38,6 +41,18 @@ function App() {
 
           <PrivateRoute path="/review">
             <Review></Review>
+          </PrivateRoute>
+
+          <PrivateRoute path="/serviceListAdmin">
+            <ServiceListAdmin />
+          </PrivateRoute>
+
+          <PrivateRoute path="/addService">
+            <AddService />
+          </PrivateRoute>
+
+          <PrivateRoute path="/makeAdmin">
+            <MakeAdmin />
           </PrivateRoute>
 
           <Route path="/login">
