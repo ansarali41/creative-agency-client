@@ -15,7 +15,7 @@ const NavMenu = () => {
     }
     return (
         <Navbar bg="light-" expand="lg" className="container">
-            <Navbar.Brand href="#home">
+            <Navbar.Brand>
                 <Link className="navbar-brand" to="/"><img className="w-25" src="https://i.ibb.co/kXDXMmN/logo.png" alt="" /></Link>
             </Navbar.Brand>
             <Navbar.Toggle aria-controls="basic-navbar-nav" />
