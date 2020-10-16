@@ -23,8 +23,8 @@ export const UserContext = createContext();
 
 function App() {
   const [user, setUser] = useState({
-    displayName: 'Ansar Ali',
-    email: 'ansar.ict14@gmail.com',
+    displayName: '',
+    email: '',
     photo: ''
   })
 

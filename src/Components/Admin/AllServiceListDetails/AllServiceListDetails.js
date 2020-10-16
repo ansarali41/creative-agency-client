@@ -13,7 +13,7 @@ const AllServiceListDetails = ({ serviceList}) => {
         const serviceStatus = status.value;
         const statusValue = {serviceStatus};
 
-        fetch(`http://localhost:5000/updateStatus/${_id}`, {
+        fetch(`https://fathomless-tundra-06496.herokuapp.com/updateStatus/${_id}`, {
             method: 'PATCH',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(statusValue)

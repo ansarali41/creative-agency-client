@@ -23,7 +23,7 @@ const Order = ({ dashboard }) => {
         formData.append('price', data.price)
         formData.append('status', status)
 
-        fetch('http://localhost:5000/addOrder', {
+        fetch('https://fathomless-tundra-06496.herokuapp.com/addOrder', {
             method: 'POST',
             body: formData
         })

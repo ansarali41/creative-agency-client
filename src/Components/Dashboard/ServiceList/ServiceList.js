@@ -9,7 +9,7 @@ const ServiceList = () => {
     const [services, setServices] = useState([]);
     const [fetching, setFetching] = useState(true)
     useEffect(() => {
-        fetch(`http://localhost:5000/serviceList/${user.email}`)
+        fetch(`https://fathomless-tundra-06496.herokuapp.com/serviceList/${user.email}`)
             .then(response => response.json())
             .then(data => {
                 setServices(data);

@@ -12,7 +12,7 @@ const Review = () => {
         newData.image = user.photo;
         console.log(newData);
 
-        fetch('http://localhost:5000/addReview',{
+        fetch('https://fathomless-tundra-06496.herokuapp.com/addReview',{
             method: 'POST',
             headers: {'Content-Type': 'application/json'},
             body: JSON.stringify(newData)
