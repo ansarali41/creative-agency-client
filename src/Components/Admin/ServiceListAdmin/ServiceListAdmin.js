@@ -9,7 +9,6 @@ const ServiceListAdmin = ({ dashboard }) => {
         fetch('http://localhost:5000/allService')
             .then(response => response.json())
             .then(data => {
-                console.log(data);
                 setAllServiceList(data);
             })
     }, [])

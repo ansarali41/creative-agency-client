@@ -14,8 +14,8 @@ const ServiceDetails = ({ service}) => {
         textColor = 'green';
     }
     else if(status === 'on going'){
-        bgColor = '#e7bb68';
-        textColor = '#FFBD3E';
+        bgColor = '#fde0a9';
+        textColor = 'orange';
     }
     
     return (
