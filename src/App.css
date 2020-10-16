@@ -19,3 +19,9 @@
   background-color: #E5E5E5;
   border-radius: 10px;
 }
+.zoom-out {
+    transition: ease .25s;
+}
+.zoom-out:hover {
+    transform: scale(1.1);
+}
